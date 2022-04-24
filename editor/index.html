@@ -1,98 +1,144 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Weltmeister</title>
-	<link rel="stylesheet" type="text/css" href="/lib/weltmeister/weltmeister.css"/>
-	<script src="/lib/weltmeister/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/lib/weltmeister/jquery-ui-1.8.1.custom.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/lib/impact/impact.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/lib/weltmeister/weltmeister.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-<div id="headerMenu">
-	<span class="headerTitle"></span>
-	<span class="unsavedTitle"></span>
-	<span class="headerFloat">
-		<input type="button" id="levelSave" value="Save" class="button"/>
-		<input type="button" id="levelSaveAs" value="Save As" class="button"/>
-		<input type="button" id="levelNew" value="New" class="button"/>
-		<input type="button" id="levelLoad" value="Load" class="button"/>
-		<input type="button" id="reloadImages" value="Reload Images" title="Reload Images" class="button"/>
-		<input type="button" id="toggleSidebar" value="Toggle Sidebar" title="Toggle Sidebar" class="button"/>
-	</span>
-</div>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Weltmeister</title>
+		<link rel="stylesheet" type="text/css" href="/editor/index.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="/lib/weltmeister/weltmeister.css"/> -->
+		<script src="/lib/weltmeister/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/weltmeister/jquery-ui-1.8.1.custom.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/impact/impact.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/weltmeister/weltmeister.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header id="headerMenu">
+			<p id="headerTitle"></p>
 
-<div id="editor">
-	<div id="entityMenu"></div>
-	
-	<canvas id="canvas"></canvas>
-	
-	<div id="menu">
-		<div id="layerContainer">
-			<h2>Layers</h2>
-			<div id="layerButtons">
-				<div class="button" id="buttonAddLayer" title="Add Layer">+</div>
+			<div id="headerButtons">
+				<button type="button" id="levelSave">Save</button>
+				<button type="button" id="levelSaveAs">Save As</button>
+				<button type="button" id="levelNew">New</button>
+				<button type="button" id="levelLoad">Load</button>
+				<button type="button" id="reloadImages">Reload Images</button>
+				<button type="button" id="toggleSidebar">Toggle Sidebar</button>
+
+				<div id="play-button" onclick="openPopup('http:\/\/' + window.location.host, '_blank', 896, 504)"></div>
 			</div>
-			<div id="layers">
-				<div id="layerEntities" class="layer">
-					<span class="visible specialVis checkedVis" title="Toggle Visibility (Shift+0)"></span>
-					<span class="name">entities</span>
+		</header>
+
+		<div id="editor">
+			<div id="entityMenu"></div>
+
+			<div id="properties">
+				<p id="properties-title">Properties</p>
+
+				<div id="layerSettings">
+					<div class="input-label">
+						<label for="layerName">Name:</label>
+						<input type="text" class="text" id="layerName" autocomplete="nope" />
+					</div>
+
+					<div class="input-label">
+						<label for="layerTileset">Tileset:</label>
+						<input type="text" class="text" id="layerTileset" autocomplete="off" />
+					</div>
+
+					<div class="input-label">
+						<label for="layerTilesize">Tilesize:</label>
+						<input type="text" class="number" id="layerTilesize" autocomplete="off" />
+					</div>
+
+					<div class="input-label">
+						<label>Dimensions:</label>
+						<div class="twin-input">
+							<input type="text" class="number" id="layerWidth" autocomplete="off" /> &times; <input type="text" class="number" id="layerHeight" autocomplete="off" />
+						</div>
+					</div>
+
+					<div class="input-label">
+						<label for="layerDistance">Distance:</label>
+						<input type="text" class="number" id="layerDistance" autocomplete="off" />
+					</div>
+
+					<div class="input-label">
+						<input type="checkbox" id="layerIsCollision" />
+						<label for="layerIsCollision">Is Collision Layer</label>
+					</div>
+
+					<div class="input-label">
+						<input type="checkbox" id="layerPreRender" />
+						<label for="layerPreRender">Pre-Render in Game</label>
+					</div>
+
+					<div class="input-label">
+						<input type="checkbox" id="layerRepeat" />
+						<label for="layerRepeat">Repeat</label>
+					</div>
+
+					<div class="input-label">
+						<input type="checkbox" id="layerLinkWithCollision" />
+						<label for="layerLinkWithCollision">Link with Collision</label>
+					</div>
+
+					<div id="layer-buttons">
+						<button id="buttonSaveLayerSettings">Apply Changes</button>
+						<button id="buttonRemoveLayer">Delete</button>
+					</div>
+				</div>
+				
+				<div id="entitySettings">
+					<p id="entityClass">EntityClassName</p>
+
+					<div id="entityDefinitions">
+						<div class="entityDefinition"><span class="key">x</span>:<span class="value">188</span></div>
+						<div class="entityDefinition"><span class="key">y</span>:<span class="value">269</span></div>
+					</div>
+					<dl id="entityDefinitionInput">
+						<dt>Key:</dt><dd><input type="text" class="text" id="entityKey"/></dd>
+						<dt>Value:</dt><dd><input type="text" class="text" id="entityValue"/></dd>
+					</dl>
 				</div>
 			</div>
-		</div>
-		
-		
-		<div id="layerSettings">
-			<h2>Layer Settings</h2>
-			<dl>
-				<dt>Name:</dt><dd><input type="text" class="text" id="layerName"/></dd>
-				<dt>Tileset:</dt><dd><input type="text" class="text" id="layerTileset"/></dd>
-				<dt>Tilesize:</dt><dd><input type="text" class="number" id="layerTilesize"/></dd>
-				<dt>Dimensions:</dt>
-				<dd>
-					<input type="text" class="number" id="layerWidth"/> &times; <input type="text" class="number" id="layerHeight"/>
-				</dd>
-				<dt>Distance:</dt><dd><input type="text" class="number" id="layerDistance"/></dd>
-				<dd>
-					<input type="checkbox" id="layerIsCollision"/>
-					<label for="layerIsCollision">Is Collision Layer</label>
-				</dd>
-				<dd>
-					<input type="checkbox" id="layerPreRender"/>
-					<label for="layerPreRender">Pre-Render in Game</label>
-				</dd>
-				<dd>
-					<input type="checkbox" id="layerRepeat"/>
-					<label for="layerRepeat">Repeat</label>
-				</dd>
-				<dd>
-					<input type="checkbox" id="layerLinkWithCollision"/>
-					<label for="layerLinkWithCollision">Link with Collision</label>
-				</dd>
-				<dd>
-					<input type="button" id="buttonSaveLayerSettings" value="Apply Changes" class="button"/>
-					<input type="button" id="buttonRemoveLayer" value="Delete" class="button"/>
-				</dd>
-			</dl>
-		</div>
-		
-		<div id="entitySettings">
-			<h2>Entity Settings</h2>
-			<h3 id="entityClass">EntityClassName</h3>
-			<div id="entityDefinitions">
-				<div class="entityDefinition"><span class="key">x</span>:<span class="value">188</span></div>
-				<div class="entityDefinition"><span class="key">y</span>:<span class="value">269</span></div>
+			
+			<canvas id="canvas"></canvas>
+			
+			<div id="layerContainer">
+				<p id="layer-container-title">Layers</p>
+
+				<div id="layers">
+					<div id="layerEntities" class="layer">
+						<span class="visible specialVis checkedVis" title="Toggle Visibility (Shift+0)"></span>
+						<span class="name">entities</span>
+					</div>
+				</div>
+
+				<div id="layerButtons">
+					<div class="button" id="buttonAddLayer" title="Add Layer">+</div>
+				</div>
 			</div>
-			<dl id="entityDefinitionInput">
-				<dt>Key:</dt><dd><input type="text" class="text" id="entityKey"/></dd>
-				<dt>Value:</dt><dd><input type="text" class="text" id="entityValue"/></dd>
-			</dl>
+			
+			<div id="zoomIndicator">1x</div>
 		</div>
-	</div>
-	
-	<div id="zoomIndicator">1x</div>
-	
-</div>
-</body>
+
+		<script>
+			function openPopup(url, title, width, height)
+			{
+				const y = window.top.outerHeight / 2 + window.top.screenY - height / 2;
+				const x = window.top.outerWidth / 2 + window.top.screenX - width / 2;
+
+				return window.open(url, title, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${y}, left=${x}`);
+			}
+
+			document.addEventListener('keydown', (event) =>
+			{
+				if (event.ctrlKey && event.key === "P") openPopup('http:\/\/' + window.location.host, '_blank', 896, 504);
+				else if (event.ctrlKey && event.key === "H")
+				{
+					document.getElementById('headerMenu').classList.toggle('hide');
+					document.getElementById('layerContainer').classList.toggle('hide');
+					document.getElementById('properties').classList.toggle('hide');
+				}
+			});
+		</script>
+	</body>
 </html>
