@@ -89,13 +89,23 @@
 					<p id="entityClass">EntityClassName</p>
 
 					<div id="entityDefinitions">
-						<div class="entityDefinition"><span class="key">x</span>:<span class="value">188</span></div>
-						<div class="entityDefinition"><span class="key">y</span>:<span class="value">269</span></div>
+						<div class="entityDefinition">
+							<p class="key">x</p><span>:</span><p id="entityDefinitionPosX" class="value">188</p>
+							<p class="key">y</p><span>:</span><p id="entityDefinitionPosY" class="value">259</p>
+						</div>
 					</div>
-					<dl id="entityDefinitionInput">
-						<dt>Key:</dt><dd><input type="text" class="text" id="entityKey"/></dd>
-						<dt>Value:</dt><dd><input type="text" class="text" id="entityValue"/></dd>
-					</dl>
+
+					<div id="entityDefinitionInput">
+						<div class="input-label">
+							<label for="entityKey">Key:</label>
+							<input type="text" class="text" id="entityKey" autocomplete="off" />
+						</div>
+
+						<div class="input-label">
+							<label for="entityValue">Value:</label>
+							<input type="text" class="text" id="entityValue" autocomplete="off" />
+						</div>
+					</div>
 				</div>
 			</div>
 			

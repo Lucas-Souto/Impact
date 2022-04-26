@@ -214,8 +214,35 @@ canvas
 	display: none;
 }
 
+.entityDefinition
+{
+    margin-bottom: 1em;
+
+    color: white;
+}
+
+.entityDefinition *
+{
+    cursor: pointer;
+    display: inline;
+    font-size: 1.5em;
+
+    margin: 0;
+}
+
+.entityDefinition .value
+{
+    margin-left: .5em;
+    padding: 0 .5em;
+
+    border-radius: 5px;
+    background-color: var(--input-background);
+}
+
 .input-label
 {
+    display: flex;
+
     margin-bottom: .5em;
 }
 
@@ -292,36 +319,6 @@ canvas
 #layer-buttons button:hover
 {
     background-color: var(--main-light-color);
-}
-
-.selectFileDialog
-{
-	position: absolute;
-    max-height: 18.75em;
-    display: none;
-	overflow: hidden;
-	overflow-y: scroll;
-
-    border-radius: 0 0 10px 10px;
-    background-color: var(--input-background);
-	box-shadow: 0px 0px 10px rgba(0,0,0,1);
-}
-
-.selectFileDialog a
-{
-	padding: 4px;
-	color: #fff;
-	display: block;
-	text-decoration: none;
-	border-top: 1px solid rgba(255,255,255,0);
-	border-bottom: 1px solid rgba(255,255,255,0);
-}
-
-.selectFileDialog a:hover
-{
-	background-color: rgba(255,255,255,0.2);
-	border-top: 1px solid rgba(255,255,255,0.2);
-	border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 #entityClass
@@ -417,6 +414,108 @@ canvas
 	top: 30px;
 
 	color: #fff;
+}
+
+/* ------------------------------- Dialog ------------------------------- */
+
+.selectFileDialog
+{
+	position: absolute;
+    max-height: 18.75em;
+    display: none;
+	overflow: hidden;
+	overflow-y: scroll;
+
+    border-radius: 0 0 10px 10px;
+    background-color: var(--input-background);
+	box-shadow: 0px 0px 10px black;
+}
+
+.selectFileDialog a
+{
+	display: block;
+	text-decoration: none;
+
+	padding: 4px;
+
+	color: white;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+
+.selectFileDialog a:hover
+{
+	border-top: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.2);
+}
+
+div.modalDialogBackground
+{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+	background-color: rgba(0,0,0,0.7);
+}
+
+div.modalDialogBox
+{
+	width: 300px;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+
+	margin-left: -170px;
+	padding: 20px;
+
+	border: 1px solid rgb(100,100,100);
+	box-shadow: 0px 0px 10px black;
+    background-color: rgba(0,0,0,0.9);
+}
+
+div.modalDialogText
+{
+	font-size: 180%;
+	font-weight: bold;
+    text-align: center;
+
+    color: white;
+}
+
+div.modalDialogButtons
+{
+    width: fit-content;
+
+    margin: 0 auto;
+	margin-top: 20px;
+}
+
+div.modalDialogButtons input.button
+{
+	min-width: 100px;
+	text-align: center;
+
+	margin: 0 5px;
+}
+
+input.modalDialogPath
+{
+	width: 100%;
+
+	margin-top: 20px;
+
+	outline: none;
+}
+
+input.modalDialogPath:focus
+{
+	border: 1px solid rgb(100,100,100);
+	outline: none;
 }
 
 @media (max-width: 1200px)
