@@ -1,3 +1,9 @@
+# Krater
+
+Krater é uma Game Engine para jogos HTML baseada na Impact.
+
+Procurando por engines para jogos para a web, a Impact foi a que mais me chamou atenção e funcionou para mim. Tendo isso em mente, fiz esse fork para fazer algumas modificações para ficar mais "a minha cara".
+
 # Impact
 
 Impact is an HTML5 Game Engine. More info & documentation: http://impactjs.com/

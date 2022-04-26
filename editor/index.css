@@ -127,6 +127,38 @@ header
     width: 100%;
 }
 
+#entityMenu
+{
+	min-width: 100px;
+	max-height:300px;
+	display: none;
+	position: absolute;
+	overflow-y: scroll;
+	z-index: 1000;
+
+	background-color: rgba(0,0,0,0.9);
+}
+
+#entityMenu div
+{
+	cursor: pointer;
+
+	padding: 3px;
+	padding-left: 8px;
+
+	color: #fff;
+	border-top: 1px solid rgba(255,255,255,0);
+	border-bottom: 1px solid rgba(255,255,255,0);
+	transition: 0.1s linear;
+}
+
+#entityMenu div:hover
+{
+	border-top: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.2);
+}
+
 #properties
 {
     position: absolute;
@@ -367,8 +399,9 @@ canvas
     cursor: pointer;
     font-size: 4em;
     font-weight: bold;
-    text-align: right;
+    width: fit-content;
     
+    margin-left: auto;
     margin-right: .25em;
 
     color: white;
