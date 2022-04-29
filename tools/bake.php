@@ -1,7 +1,7 @@
 <?php
 if( count($argv) < 3 ) {
 	echo "Usage: bake.php <in...> <out>\n";
-	echo "e.g. bake.php lib/impact/impact.js lib/game/game.js mygame-baked.js\n";
+	echo "e.g. bake.php lib/krater/krater.js lib/game/game.js mygame-baked.js\n";
 	die;
 }
 

@@ -1,7 +1,7 @@
 @echo off
 
-:: Path to impact.js and your game's main .js
-SET IMPACT_LIBRARY=lib/impact/impact.js
+:: Path to krater.js and your game's main .js
+SET IMPACT_LIBRARY=lib/krater/krater.js
 SET GAME=lib/game/main.js
 
 :: Output file

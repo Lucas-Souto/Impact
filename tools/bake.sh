@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Path to impact.js and your game's main .js
-IMPACT_LIBRARY=lib/impact/impact.js
+# Path to krater.js and your game's main .js
+IMPACT_LIBRARY=lib/krater/krater.js
 GAME=lib/game/main.js
 
 # Output file
