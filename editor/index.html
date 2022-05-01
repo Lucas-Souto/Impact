@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="/editor/index.css"/>
 		<script src="/lib/weltmeister/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/lib/weltmeister/jquery-ui-1.8.1.custom.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/krater/krater.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/weltmeister/weltmeister.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/krater/krater.js" type="module" charset="utf-8"></script>
+		<script src="/lib/weltmeister/weltmeister.js" type="module" charset="utf-8"></script>
 	</head>
 	<body>
 		<header id="headerMenu">
@@ -19,9 +19,8 @@
 				<button type="button" id="levelNew">New</button>
 				<button type="button" id="levelLoad">Load</button>
 				<button type="button" id="reloadImages">Reload Images</button>
-				<button type="button" id="toggleSidebar">Toggle Sidebar</button>
 
-				<div id="play-button" onclick="openPopup('http:\/\/' + window.location.host, '_blank', 896, 504)"></div>
+				<div id="playButton" onclick="openPopup('http:\/\/' + window.location.host, '_blank', 896, 504)"></div>
 			</div>
 		</header>
 
@@ -29,57 +28,57 @@
 			<div id="entityMenu"></div>
 
 			<div id="properties">
-				<p id="properties-title">Properties</p>
+				<p id="propertiesTitle">Properties</p>
 
 				<div id="layerSettings">
-					<div class="input-label">
+					<div class="inputLabel">
 						<label for="layerName">Name:</label>
 						<input type="text" class="text" id="layerName" autocomplete="nope" />
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<label for="layerTileset">Tileset:</label>
 						<input type="text" class="text" id="layerTileset" autocomplete="off" />
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<label for="layerTilesize">Tilesize:</label>
 						<input type="text" class="number" id="layerTilesize" autocomplete="off" />
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<label>Dimensions:</label>
-						<div class="twin-input">
+						<div class="twinInput">
 							<input type="text" class="number" id="layerWidth" autocomplete="off" /> &times; <input type="text" class="number" id="layerHeight" autocomplete="off" />
 						</div>
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<label for="layerDistance">Distance:</label>
 						<input type="text" class="number" id="layerDistance" autocomplete="off" />
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<input type="checkbox" id="layerIsCollision" />
 						<label for="layerIsCollision">Is Collision Layer</label>
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<input type="checkbox" id="layerPreRender" />
 						<label for="layerPreRender">Pre-Render in Game</label>
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<input type="checkbox" id="layerRepeat" />
 						<label for="layerRepeat">Repeat</label>
 					</div>
 
-					<div class="input-label">
+					<div class="inputLabel">
 						<input type="checkbox" id="layerLinkWithCollision" />
 						<label for="layerLinkWithCollision">Link with Collision</label>
 					</div>
 
-					<div id="layer-buttons">
+					<div id="layerButtons">
 						<button id="buttonSaveLayerSettings">Apply Changes</button>
 						<button id="buttonRemoveLayer">Delete</button>
 					</div>
@@ -96,12 +95,12 @@
 					</div>
 
 					<div id="entityDefinitionInput">
-						<div class="input-label">
+						<div class="inputLabel">
 							<label for="entityKey">Key:</label>
 							<input type="text" class="text" id="entityKey" autocomplete="off" />
 						</div>
 
-						<div class="input-label">
+						<div class="inputLabel">
 							<label for="entityValue">Value:</label>
 							<input type="text" class="text" id="entityValue" autocomplete="off" />
 						</div>
@@ -112,7 +111,7 @@
 			<canvas id="canvas"></canvas>
 			
 			<div id="layerContainer">
-				<p id="layer-container-title">Layers</p>
+				<p id="layerContainerTitle">Layers</p>
 
 				<div id="layers">
 					<div id="layerEntities" class="layer">
