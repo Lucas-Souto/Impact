@@ -37,7 +37,7 @@ class Baker
 		$this->bytesIn = 0;
 		$out = implode("\n", $this->loadAll('lib/game/main.js'));
 
-		if($this->format & self::MINIFIED) $out = "/*! Built with Krater */\n\n" . JSMin::minify($out);
+		if($this->format & self::MINIFIED) $out = "/*! Built with Krater */\nlet Entities = [];\n" . JSMin::minify($out);
 		
 		$bytesOut = strlen($out);
 		$bytesOutZipped = 0;
@@ -75,9 +75,18 @@ class Baker
 		{
 			if (strpos(trim($value), 'export') === 0)
 			{
-				if (basename($start) === $this->ignoreFile) array_splice($code, $key);
+				$isIndex = basename($start) === $this->ignoreFile;
 
-				$code[$key] = '';
+				if ($isIndex) array_splice($code, $key);
+				
+				if (!$isIndex && realPath(dirname($this->base . $start)) === realPath($this->base . 'lib/game/entities'))
+				{
+					$code[$key] = str_replace('export', '', $code[$key]);
+					$code[$key] = str_replace('default', '', $code[$key]);
+					$code[$key] = trim(str_replace(';', '', $code[$key]));
+					$code[$key] = 'Entities["' . $code[$key] . '"] = ' . $code[$key] . ";";
+				}
+				else $code[$key] = '';
 			}
 			else if (strpos(trim($value), 'import') === 0)
 			{
