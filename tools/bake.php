@@ -81,9 +81,7 @@ class Baker
 				
 				if (!$isIndex && realPath(dirname($this->base . $start)) === realPath($this->base . 'lib/game/entities'))
 				{
-					$code[$key] = str_replace('export', '', $code[$key]);
-					$code[$key] = str_replace('default', '', $code[$key]);
-					$code[$key] = trim(str_replace(';', '', $code[$key]));
+					$code[$key] = trim(str_replace(['export', 'default', ';'], '', $code[$key]));
 					$code[$key] = 'Entities["' . $code[$key] . '"] = ' . $code[$key] . ";";
 				}
 				else $code[$key] = '';
