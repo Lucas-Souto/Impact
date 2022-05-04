@@ -26,102 +26,104 @@
 
 		<div id="editor">
 			<div id="entityMenu"></div>
-
-			<div id="properties">
-				<p id="propertiesTitle">Properties</p>
-
-				<div id="layerSettings">
-					<div class="inputLabel">
-						<label for="layerName">Name:</label>
-						<input type="text" class="text" id="layerName" autocomplete="nope" />
-					</div>
-
-					<div class="inputLabel">
-						<label for="layerTileset">Tileset:</label>
-						<input type="text" class="text" id="layerTileset" autocomplete="off" />
-					</div>
-
-					<div class="inputLabel">
-						<label for="layerTilesize">Tilesize:</label>
-						<input type="text" class="number" id="layerTilesize" autocomplete="off" />
-					</div>
-
-					<div class="inputLabel">
-						<label>Dimensions:</label>
-						<div class="twinInput">
-							<input type="text" class="number" id="layerWidth" autocomplete="off" /> &times; <input type="text" class="number" id="layerHeight" autocomplete="off" />
-						</div>
-					</div>
-
-					<div class="inputLabel">
-						<label for="layerDistance">Distance:</label>
-						<input type="text" class="number" id="layerDistance" autocomplete="off" />
-					</div>
-
-					<div class="inputLabel">
-						<input type="checkbox" id="layerIsCollision" />
-						<label for="layerIsCollision">Is Collision Layer</label>
-					</div>
-
-					<div class="inputLabel">
-						<input type="checkbox" id="layerPreRender" />
-						<label for="layerPreRender">Pre-Render in Game</label>
-					</div>
-
-					<div class="inputLabel">
-						<input type="checkbox" id="layerRepeat" />
-						<label for="layerRepeat">Repeat</label>
-					</div>
-
-					<div class="inputLabel">
-						<input type="checkbox" id="layerLinkWithCollision" />
-						<label for="layerLinkWithCollision">Link with Collision</label>
-					</div>
-
-					<div id="layerButtons">
-						<button id="buttonSaveLayerSettings">Apply Changes</button>
-						<button id="buttonRemoveLayer">Delete</button>
-					</div>
-				</div>
-				
-				<div id="entitySettings">
-					<p id="entityClass">EntityClassName</p>
-
-					<div id="entityDefinitions">
-						<div class="entityDefinition">
-							<p class="key">x</p><span>:</span><p id="entityDefinitionPosX" class="value">188</p>
-							<p class="key">y</p><span>:</span><p id="entityDefinitionPosY" class="value">259</p>
-						</div>
-					</div>
-
-					<div id="entityDefinitionInput">
-						<div class="inputLabel">
-							<label for="entityKey">Key:</label>
-							<input type="text" class="text" id="entityKey" autocomplete="off" />
-						</div>
-
-						<div class="inputLabel">
-							<label for="entityValue">Value:</label>
-							<input type="text" class="text" id="entityValue" autocomplete="off" />
-						</div>
-					</div>
-				</div>
-			</div>
 			
 			<canvas id="canvas"></canvas>
 			
-			<div id="layerContainer">
-				<p id="layerContainerTitle">Layers</p>
-
-				<div id="layers">
-					<div id="layerEntities" class="layer">
-						<span class="visible specialVis checkedVis" title="Toggle Visibility (Shift+0)"></span>
-						<span class="name">entities</span>
+			<div id="mapMenu">
+				<div id="layerContainer">
+					<p id="layerContainerTitle">Layers</p>
+	
+					<div id="layers">
+						<div id="layerEntities" class="layer">
+							<span class="visible specialVis checkedVis" title="Toggle Visibility (Shift+0)"></span>
+							<span class="name">entities</span>
+						</div>
+					</div>
+	
+					<div id="layerButtons">
+						<div class="button" id="buttonAddLayer" title="Add Layer">+</div>
 					</div>
 				</div>
-
-				<div id="layerButtons">
-					<div class="button" id="buttonAddLayer" title="Add Layer">+</div>
+				
+				<div id="properties">
+					<p id="propertiesTitle">Properties</p>
+	
+					<div id="layerSettings">
+						<div class="inputLabel">
+							<label for="layerName">Name:</label>
+							<input type="text" class="text" id="layerName" autocomplete="nope" />
+						</div>
+	
+						<div class="inputLabel">
+							<label for="layerTileset">Tileset:</label>
+							<input type="text" class="text" id="layerTileset" autocomplete="off" />
+						</div>
+	
+						<div class="inputLabel">
+							<label for="layerTilesize">Tilesize:</label>
+							<input type="text" class="number" id="layerTilesize" autocomplete="off" />
+						</div>
+	
+						<div class="inputLabel">
+							<label>Dimensions:</label>
+							<div class="twinInput">
+								<input type="text" class="number" id="layerWidth" autocomplete="off" /> &times; <input type="text" class="number" id="layerHeight" autocomplete="off" />
+							</div>
+						</div>
+	
+						<div class="inputLabel">
+							<label for="layerDistance">Distance:</label>
+							<input type="text" class="number" id="layerDistance" autocomplete="off" />
+						</div>
+	
+						<div class="inputLabel">
+							<input type="checkbox" id="layerIsCollision" />
+							<label for="layerIsCollision">Is Collision Layer</label>
+						</div>
+	
+						<div class="inputLabel">
+							<input type="checkbox" id="layerPreRender" />
+							<label for="layerPreRender">Pre-Render in Game</label>
+						</div>
+	
+						<div class="inputLabel">
+							<input type="checkbox" id="layerRepeat" />
+							<label for="layerRepeat">Repeat</label>
+						</div>
+	
+						<div class="inputLabel">
+							<input type="checkbox" id="layerLinkWithCollision" />
+							<label for="layerLinkWithCollision">Link with Collision</label>
+						</div>
+	
+						<div id="layerButtons">
+							<button id="buttonSaveLayerSettings">Apply Changes</button>
+							<button id="buttonRemoveLayer">Delete</button>
+						</div>
+					</div>
+					
+					<div id="entitySettings">
+						<p id="entityClass">EntityClassName</p>
+	
+						<div id="entityDefinitions">
+							<div class="entityDefinition">
+								<p class="key">x</p><span>:</span><p id="entityDefinitionPosX" class="value">188</p>
+								<p class="key">y</p><span>:</span><p id="entityDefinitionPosY" class="value">259</p>
+							</div>
+						</div>
+	
+						<div id="entityDefinitionInput">
+							<div class="inputLabel">
+								<label for="entityKey">Key:</label>
+								<input type="text" class="text" id="entityKey" autocomplete="off" />
+							</div>
+	
+							<div class="inputLabel">
+								<label for="entityValue">Value:</label>
+								<input type="text" class="text" id="entityValue" autocomplete="off" />
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -140,12 +142,7 @@
 			document.addEventListener('keydown', (event) =>
 			{
 				if (event.ctrlKey && event.key === "P") openPopup('http:\/\/' + window.location.host, '_blank', 896, 504);
-				else if (event.ctrlKey && event.key === "H")
-				{
-					document.getElementById('headerMenu').classList.toggle('hide');
-					document.getElementById('layerContainer').classList.toggle('hide');
-					document.getElementById('properties').classList.toggle('hide');
-				}
+				else if (event.ctrlKey && event.key === "H") document.getElementById('mapMenu').classList.toggle('hide');
 			});
 		</script>
 	</body>

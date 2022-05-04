@@ -159,26 +159,28 @@ header
 	background-color: rgba(255,255,255,0.2);
 }
 
-#properties
-{
-    position: absolute;
-    left: 0;
-
-    margin-right: .5em;
-}
-
 canvas
 {
     position: absolute;
     width: 100%;
 }
 
-#layerContainer
+#mapMenu
 {
     position: absolute;
     right: 0;
 
     margin-left: .5em;
+}
+
+#properties
+{
+    border-bottom-left-radius: 10px;
+}
+
+#layerContainer, #layerContainerTitle
+{
+    border-top-left-radius: 10px;
 }
 
 #properties,
@@ -188,7 +190,6 @@ canvas
     width: 20em;
     height: 100%;
 
-    border-radius: 0 10px 10px 0;
     background-color: var(--menu-color);
 }
 
@@ -202,8 +203,6 @@ canvas
 
     color: var(--menu-title-color);
     background-color: var(--main-color);
-    border-top-right-radius: inherit;
-    border-top-left-radius: inherit;
 }
 
 #layerSettings,
@@ -284,12 +283,12 @@ canvas
 
 .inputLabel input[type="checkbox"]:checked
 { 
-	background-color: var(--main-light-color);
+	background-color: #9c9c9c;
 }
 
 .inputLabel input[type="checkbox"]:disabled
 {
-	background-color: #555454; 
+	background-color: #272727; 
 }
 
 .inputLabel label
@@ -331,9 +330,10 @@ canvas
     color: white;
 }
 
-#layerContainer
+#layers
 {
-    border-radius: 10px 0 0 10px;
+    height: 8em;
+    overflow-y: auto;
 }
 
 .layer
@@ -394,7 +394,7 @@ canvas
 #buttonAddLayer
 {
     cursor: pointer;
-    font-size: 4em;
+    font-size: 2.5em;
     font-weight: bold;
     width: fit-content;
     
