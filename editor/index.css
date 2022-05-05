@@ -208,9 +208,11 @@ canvas
 #layerSettings,
 #entitySettings
 {
-    padding: 1em;
-    overflow: auto;
 	display: none;
+    height: 29em;
+    overflow: auto;
+
+    padding: 1em;
 }
 
 .entityDefinition
